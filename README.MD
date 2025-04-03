@@ -12,7 +12,7 @@ Toutes les requêtes vers l'API doivent inclure un jeton privé via l'en-tête :
 Authorization: Bearer VOTRE_CLE_PRIVEE
 ```
 
-> Chaque utilisateur dispose d'une clé privée générée lors de l'inscription sur le site web [php-exo-curl.cvmdev.be](https://php-exo-curl.cvmdev.be) et disponible sur la page "profil".
+> Chaque utilisateur dispose d'une clé privée générée lors de l'inscription sur le site web <a href="https://php-exo-curl.cvmdev.be" target="_blank" rel="noopener">php-exo-curl.cvmdev.be</a> et disponible sur la page "profil".
 
 ---
 
