@@ -24,8 +24,8 @@ Une tâche est un tableau associatif contenant les clés suivantes :
 
 - **id** - *int* : Identifiant logique de la tâche (initialisé par l'application et non modifiable).
 - **position** - *int* : Position de la tâche dans la todolist (initialisé par l'application mais modifiable par la suite).
-- **texte** - *string* : Le texte détaillant la tâche (initialisé par l'utilisateur lors de la création et modifiable par la suite).
-- **fait** - *bool* : le statut de la tâche (initialisé par l'application ou l'utilisateur et modifiable par la suite).
+- **texte** - *string* : Texte détaillant la tâche (initialisé par l'utilisateur lors de la création et modifiable par la suite).
+- **fait** - *bool* : Statut de la tâche (initialisé par l'application ou l'utilisateur et modifiable par la suite).
 
 #### Exemple de la structure d'une tâche
 
