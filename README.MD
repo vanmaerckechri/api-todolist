@@ -113,20 +113,20 @@ Par exemple :
 ### Créer une nouvelle todolist
 
 - **Requête** : **POST** `/api/todolists/`
-- **Données à envoyer** : Tableau associatif contenant une clé "**listeNom**" à laquelle il faut attribuer le nom souhaité de la todolist. Attention, le nom ne peut contenir que des caractères alphanumériques et des tirets.
+- **Données à envoyer** : Tableau associatif au format `JSON` contenant une clé "**listeNom**" à laquelle il faut attribuer le nom souhaité de la todolist. Attention, le nom ne peut contenir que des caractères alphanumériques et des tirets.
 
 - **Exemple** :
     - **Requête** : **POST** `/api/todolists/`
     - **Données à envoyer** :
         ```php
-        ["listeNom" => "liste-de-courses"]
+        {"listeNom" => "liste-de-courses"}
         ```
 
 ### Ajouter une tâche à une todolist
 
 - **Requête** : **POST** `/api/todolists/{nomDeLaListe}/todos/`
 
-- **Données à envoyer** : Tableau associatif contenant deux clés :
+- **Données à envoyer** : Tableau associatif au format `JSON` contenant deux clés :
     - **texte** - *string*  : Description de la tâche.
     - **fait** - *bool* : Statut de la tâche (facultatif : false par défaut).
 
@@ -135,17 +135,17 @@ Par exemple :
 
     - **Données à envoyer** :
         ```php
-        [
+        {
           "texte" => "Aller chez le coiffeur",
           "fait" => false
-        ]
+        }
         ```
 
 ### Modifier une tâche d'une todolist
 
 - **Requête** : **PATCH** `/api/todolists/{nomDeLaListe}/todos/{tacheId}`
 
-- **Données à envoyer** : Un tableau associatif au format `JSON` pouvant devant contenir au moins l'une des clés modifiables (**"position"**, **"texte"** et **"fait"**).
+- **Données à envoyer** : Tableau associatif au format `JSON` pouvant devant contenir au moins l'une des clés modifiables (**"position"**, **"texte"** et **"fait"**).
 
 - **Exemple** :
     - **Requête** : **PATCH** `/api/todolists/semaine-24/todos/2`
@@ -161,7 +161,7 @@ Par exemple :
 
 - **Requête** : **PUT** `/api/todolists/{nomDeLaListe}`
 
-- **Données à envoyer** : tableau associatif au format `JSON` remplaçant l'intégralité de la liste des tâches. Chaque tâche doit respecter les règles décrites dans la section "Ajouter une tâche à une todolist".
+- **Données à envoyer** : Tableau associatif au format `JSON` remplaçant l'intégralité de la liste des tâches. Chaque tâche doit respecter les règles décrites dans la section "Ajouter une tâche à une todolist".
 
 - **Exemple** :
     - **Requête** : **PUT** `/api/todolists/semaine-24`
