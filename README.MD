@@ -92,11 +92,11 @@ Par exemple :
 - **GET** `/api/todolists/` : Récupérer toutes vos todolists.
 - **GET** `/api/todolists/{nomDeLaListe}` : Récupérer la todolist {nomDeLaListe}.
 - **POST** `/api/todolists/` : Créer une nouvelle todolist.
-- **PUT** `/api/todolists/{nomDeLaListe}` : Modifier complètement la todolist {nomDeLaListe}.
-- **DELETE** `/api/todolists/{nomDeLaListe}` : Supprimer la todolist {nomDeLaListe}.
 - **POST** `/api/todolists/{nomDeLaListe}/todos/` : Ajouter une tâche à la todolist {nomDeLaListe}.
 - **PATCH** `/api/todolists/{nomDeLaListe}/todos/{tacheId}` : Modifier la tâche {tacheId} de la todolist {nomDeLaListe}.
+- **PUT** `/api/todolists/{nomDeLaListe}` : Modifier complètement la todolist {nomDeLaListe}.
 - **DELETE** `/api/todolists/{nomDeLaListe}/todos/{tacheId}` : Supprimer la tâche {tacheId} de la todolist {nomDeLaListe}.
+- **DELETE** `/api/todolists/{nomDeLaListe}` : Supprimer la todolist {nomDeLaListe}.
 
 ### Récupérer toutes vos todolists
 
@@ -122,12 +122,6 @@ Par exemple :
         ["listeNom" => "liste-de-courses"]
         ```
 
-### Supprimer une todolist
-
-- **Requête** : **DELETE** `/api/todolists/{nomDeLaListe}`
-
-- **Exemple** : **DELETE** `/api/todolists/liste-de-courses`
-
 ### Ajouter une tâche à une todolist
 
 - **Requête** : **POST** `/api/todolists/{nomDeLaListe}/todos/`
@@ -145,6 +139,22 @@ Par exemple :
           "texte" => "Aller chez le coiffeur",
           "fait" => false
         ]
+        ```
+
+### Modifier une tâche d'une todolist
+
+- **Requête** : **PATCH** `/api/todolists/{nomDeLaListe}/todos/{tacheId}`
+
+- **Données à envoyer** : Un tableau associatif au format `JSON` pouvant devant contenir au moins l'une des clés modifiables (**"position"**, **"texte"** et **"fait"**).
+
+- **Exemple** :
+    - **Requête** : **PATCH** `/api/todolists/semaine-24/todos/2`
+
+    - **Données à envoyer** :
+        ```json
+          {
+            "fait": true
+          }
         ```
 
 ### Modifier une todolist complète
@@ -169,25 +179,14 @@ Par exemple :
         ]
         ```
 
-### Modifier une tâche d'une todolist
-
-- **Requête** : **PATCH** `/api/todolists/{nomDeLaListe}/todos/{tacheId}`
-
-- **Données à envoyer** : Un tableau associatif au format `JSON` pouvant devant contenir au moins l'une des clés modifiables (**"position"**, **"texte"** et **"fait"**).
-
-- **Exemple** :
-    - **Requête** : **PATCH** `/api/todolists/semaine-24/todos/2`
-
-    - **Données à envoyer** :
-        ```json
-          {
-            "fait": true
-          }
-        ```
-
-
 ### Supprimer une tâche d'une todolist
 
 - **Requête** : **DELETE** `/api/todolists/{nomDeLaListe}/todos/{tacheId}`
 
 - **Exemple** : **DELETE** `/api/todolists/semaine-24/todos/2`
+
+### Supprimer une todolist
+
+- **Requête** : **DELETE** `/api/todolists/{nomDeLaListe}`
+
+- **Exemple** : **DELETE** `/api/todolists/liste-de-courses`
